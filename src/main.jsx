@@ -1,17 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
 import './index.css'
-import App from './App.jsx'
-import Agenda from './pages/Agenda.jsx'
+import { AuthProvider } from './contexts/AuthContext'
+import router from './router/AppRouter'
+import { RouterProvider } from 'react-router-dom' // <-- Adicione esta linha
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/agenda" element={<Agenda />} />
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  </React.StrictMode>,
 )
+

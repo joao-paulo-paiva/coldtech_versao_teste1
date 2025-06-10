@@ -1,31 +1,35 @@
-import React from 'react';
-
-function ServicesSection() {
+// components/ServicesSection.jsx
+export default function ServicesSection() {
   const services = [
-    { icon: '📦', title: 'Instalação de Ar Condicionado', description: 'Realizamos a instalação de equipamentos com segurança e eficiência.' },
-    { icon: '🔧', title: 'Manutenção Preventiva', description: 'Evite problemas futuros com manutenções regulares e programadas.' },
-    { icon: '⚙️', title: 'Manutenção Corretiva', description: 'Reparos rápidos e eficazes para garantir o funcionamento do seu equipamento.' },
-    { icon: '📋', title: 'Visitas Técnicas', description: 'Diagnóstico detalhado e soluções personalizadas para cada cliente.' },
-    { icon: '❄️', title: 'Câmara Frigorífica', description: 'Projetos e manutenção de câmaras frigoríficas para diversas aplicações.' },
-    { icon: '📐', title: 'Projetos', description: 'Desenvolvemos projetos personalizados para climatização de ambientes.' },
-  ];
+    { title: 'Instalação Profissional', emoji: '🔧' },
+    { title: 'Manutenção Preventiva', emoji: '🛠️' },
+    { title: 'Reparo Emergencial', emoji: '🚨' },
+    { title: 'Limpeza Completa', emoji: '🧼' },
+  ]
 
   return (
-    <section id="servicos" className="servicos-section">
-      <div className="container">
-        <h2>Nossos Serviços</h2>
-        <div className="servicos-grid">
+    <section id="servicos" className="py-16 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+          Nossos Serviços
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="servico-item">
-              <span className="icon">{service.icon}</span>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
+            <div 
+              key={index}
+              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+            >
+              <div className="text-4xl mb-4">{service.emoji}</div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                {service.title}
+              </h3>
+              <p className="text-gray-600">
+                Soluções completas com garantia de 12 meses
+              </p>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }
-
-export default ServicesSection;

@@ -1,0 +1,5 @@
+@reference "../../index.css"; /* Caminho relativo ao seu arquivo principal de CSS */
+
+.dashboard-grid {
+  @apply grid grid-cols-4 gap-4; /* Agora o gap-4 será reconhecido */
+}
